@@ -294,10 +294,8 @@ class ChromeVulnScanner:
                 )
                 print(output, flush=True)
 
-    def value2str(self, val) -> str:
-        if not isinstance(val, str):
-            return jsonlib.dumps(val)
-        return val
+    def value2str(self, val: Any) -> str:
+        return val if isinstance(val, str) else jsonlib.dumps(val)
 
     async def handle_responses(
         self,
