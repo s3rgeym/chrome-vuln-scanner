@@ -167,6 +167,13 @@ class ChromeVulnScanner:
                                 )
                             )
                             break
+                    # Изменен URL
+                    # https://chromedevtools.github.io/devtools-protocol/tot/Target/#event-targetInfoChanged
+                    # https://chromedevtools.github.io/devtools-protocol/tot/Target/#type-TargetInfo
+                    case 'Target.targetInfoChanged':
+                        info = params['targetInfo']
+                        logger.info('URL changed: %s', info['url'])
+                        # Проверяем домен на /.git/config и тп
             except Exception as e:
                 logger.warn(e)
 
