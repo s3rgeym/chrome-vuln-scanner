@@ -9,11 +9,14 @@ from .scanner import ChromeVulnScanner
 def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '--remote-debugging-url', default='http://127.0.0.1:9222'
+        '--remote-debugging-url',
+        '--remote-url',
+        default='http://localhost:9222',
     )
     parser.add_argument(
         '-l',
         '--log-level',
+        '--log',
         choices=['debug', 'info', 'warning', 'error', 'critical'],
     )
     args = parser.parse_args(argv)
