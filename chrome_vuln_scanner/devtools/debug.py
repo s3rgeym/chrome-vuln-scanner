@@ -111,8 +111,7 @@ class DebugClient:
         if self.autoconnect:
             await self.connect()
         assert self.connected
-        params = dict(params or {})
-        params.update(kwargs)
+        params = dict(params or {}, **kwargs)
         id_ = next(self.call_counter)
         data = {'id': id_, 'method': method, 'params': params}
         await self.ws.send_json(data)

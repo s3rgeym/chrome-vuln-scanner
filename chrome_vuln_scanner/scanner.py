@@ -5,7 +5,6 @@ import urllib.parse
 from copy import deepcopy
 from dataclasses import dataclass
 from typing import Any
-from urllib import request
 
 import aiohttp
 
