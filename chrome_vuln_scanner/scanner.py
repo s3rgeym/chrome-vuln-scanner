@@ -258,7 +258,7 @@ class ChromeVulnScanner:
                                 self.check_sqli(
                                     request.method,
                                     url,
-                                    **kw,
+                                    **kw_copy,
                                 )
                             )
                 except Exception as e:
